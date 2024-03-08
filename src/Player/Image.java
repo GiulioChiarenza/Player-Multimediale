@@ -16,18 +16,35 @@ public class Image extends Contents implements Show {
         return brightness;
     }
 
+    public void setBrightness(int brightness) {
+        this.brightness = brightness;
+    }
+
     @Override
     public void Show() {
-        System.out.println("Showing image: " + getTitles() + getBrightness());
+        for (int i = 0; i < brightness; i++) {
+            System.out.println("Showing image: " + getTitles() + ", " + "Brightness: " + numToAsterisk() + " " + getBrightness());
+        }
     }
 
     @Override
-    public String IncreasesBrightness() {
-        return null;
+    public void increaseBrightness() {
+        if (brightness < 10) {
+            brightness++;
+        }
     }
 
     @Override
-    public String DecreaseBrightness() {
-        return null;
+    public void decreaseBrightness() {
+        if (brightness > 1) {
+            brightness--;
+        }
+    }
+    public String numToAsterisk() {
+        String asterisk = "";
+        for (int i = 0; i < brightness; i++) {
+            asterisk += "*";
+        }
+        return asterisk;
     }
 }
