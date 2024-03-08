@@ -5,11 +5,11 @@ import Interfaces.Show;
 
 public class Video extends Contents implements Play, Show {
     private boolean play;
-    private String volume;
+    private int volume;
     private double duration;
-    private String brightness;
+    private int brightness;
 
-    public Video(String titles, MultimediaFormat format, boolean play, String volume, double duration, String brightness) {
+    public Video(String titles, MultimediaFormat format, boolean play, int volume, double duration, int brightness) {
         super(titles, format);
         this.play = play;
         this.volume = volume;
@@ -17,9 +17,17 @@ public class Video extends Contents implements Play, Show {
         this.brightness= brightness;
     }
 
+    public int getVolume() {
+        return volume;
+    }
+
+    public int getBrightness() {
+        return brightness;
+    }
+
     @Override
     public void Play() {
-
+        System.out.println("Playing video: " + getTitles() + getVolume() + getBrightness());
     }
 
     @Override
@@ -34,7 +42,7 @@ public class Video extends Contents implements Play, Show {
 
     @Override
     public void Show() {
-        
+
     }
 
     @Override
